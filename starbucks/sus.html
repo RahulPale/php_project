@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="sus.css" />
+    <title>Payment Form</title>
+  </head>
+
+  <body>
+    <nav class="nav nav-3">
+      <!-- <a href="">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1600px-Logonetflix.png" alt="" />
+      </a> -->
+      <a href="index.php" class="btn-logout text-underline">Sign Out</a>
+    </nav>
+
+    <form action="process_payment.php" method="POST" class="main-container margin-inline" onsubmit="return validateForm()">
+      <div class="gift-code">
+        <h2>Step 3 of 3</h2>
+        <h1 class="margin-bottom-1">Set up your credit or debit card</h1>
+      </div>
+
+      <!-- <div class="input">
+        <input class="input-field" type="text" id="Amount" name="Amount" placeholder="Amount" pattern="\d{12}" title="Enter Valid Amount" required />
+        <label for="Amount" class="input-label label-size">Amount</label>
+        <p class="text-error">Please enter a Amount</p>
+      </div> -->
+
+      <!-- Full Name -->
+      <div class="input">
+        <input class="input-field" type="text" id="fullName" name="fullName" placeholder="Full Name" pattern="[A-Za-z\s]+" title="Name should only contain letters" required />
+        <label for="fullName" class="input-label label-size">Full Name</label>
+        <p class="text-error">Please enter a valid full name.</p>
+      </div>
+
+      <!-- Card Number -->
+      <div class="input margin-top">
+        <input class="input-field" type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" pattern="\d{12}" title="Card number should be exactly 12 digits" required />
+        <label for="cardNumber" class="input-label label-size">Card Number</label>
+        <p class="text-error">Please enter a valid card number.</p>
+      </div>
+
+      <!-- Expiration Date -->
+      <div class="input margin-top">
+        <input class="input-field" type="text" id="expDate" name="expDate" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/([0-9]{2})" title="Expiration date should be in MM/YY format" required />
+        <label for="expDate" class="input-label label-size">Expiration Date (MM/YY)</label>
+        <p class="text-error">Please enter a valid expiration date.</p>
+      </div>
+
+      <!-- CVV -->
+      <div class="input margin-top">
+        <input class="input-field" type="text" id="cvv" name="cvv" placeholder="CVV" pattern="\d{3}" title="CVV should be exactly 3 digits" required />
+        <label for="cvv" class="input-label label-size">Security Code (CVV)</label>
+        <a href=""><i class="fas fa-circle-question fa-2x question"></i></a>
+        <p class="text-error">Please enter a valid CVV.</p>
+      </div>
+
+      <!-- Agreement Checkbox -->
+      <div class="agreement">
+        <input class="agree-input" type="checkbox" id="agree" required />
+        <label class="agree-label" for="agree">I agree.</label>
+        <p class="agree-alert">You must acknowledge that you have read and agree to the Terms of Use to continue.</p>
+      </div>
+
+      <button type="button" class="btn-wide margin-top-1 margin-inline" onclick="redirectToConfirmOrder()">Confirm Order</button>
+
+<script>
+    function redirectToConfirmOrder() {
+        window.location.href = "confirm_order.php";
+    }
+</script>
+
+      
+    </form>
+
+    <script>
+      function validateForm() {
+        // All validation handled by HTML pattern attributes
+        return true;
+      }
+    </script>
+  </body>
+</html>
+
+ 

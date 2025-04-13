@@ -1,0 +1,62 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .confirmation-message {
+            text-align: center;
+            font-size: 24px;
+            color: #017143;
+            margin-top: 50px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #017143;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+        .back-btn:hover {
+            background-color: #014f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-message">
+        <?php
+        // Display confirmation message
+        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+            echo "Your order has been placed successfully!";
+            // Optionally, clear the cart after confirming the order
+            unset($_SESSION['cart']);
+        } else {
+            echo "No items in the cart to confirm.";
+        }
+        ?>
+    </div>
+    <div style="text-align: center;">
+        <a href="index.php" class="back-btn">Go to Home</a>
+    </div>
+
+</body>
+</html>
